@@ -11,7 +11,7 @@ The goal is to analyze a real medical dataset related to **prostate cancer** usi
 - **Simple and Multiple Linear Regression**
 - **Feature selection using Best Subset Selection**
 
-The entire project is implemented in **Python**, following **Object-Oriented Programming (OOP)** principles to ensure modularity, clarity, and reusability :contentReference[oaicite:0]{index=0}.
+The entire project is implemented in **Python**, following **Object-Oriented Programming (OOP)** principles to ensure modularity, clarity, and reusability.
 
 ---
 
