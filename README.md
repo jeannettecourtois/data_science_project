@@ -60,12 +60,12 @@ All analyses are performed on the transformed data.
 ├── data/
 │   └── prostate.txt
 ├── src/
-│   ├── data_loader.py
-│   ├── preprocessing.py
-│   ├── descriptive_analysis.py
-│   ├── pca_analysis.py
-│   ├── regression.py
-│   └── model_selection.py
+│   ├── descriptive_statistics.py
+│   ├── 
+│   ├── 
+│   ├── 
+│   ├── 
+│   └── 
 ├── main.py
 ├── requirements.txt
 └── README.md
