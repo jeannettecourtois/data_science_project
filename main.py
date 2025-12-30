@@ -5,13 +5,17 @@ from src.descriptive_statistics import Variable
 
 
 
-
-
-
-
 def main():
-    Age_Variable = Variable()
-    print(Age_Variable.get_mean())
+    try:
+        
+        Age_Variable = Variable()
+        print(Age_Variable)
+        print(Age_Variable.all_figures())
+
+    except:
+        print("multiple errors, check syntax ")
+        
+    
 
 if __name__ == "__main__":
     main()
