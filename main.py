@@ -12,8 +12,8 @@ def main():
         print(Age_Variable)
         print(Age_Variable.all_figures())
 
-    except:
-        print("multiple errors, check syntax ")
+    except OSError as err:
+        print("OS error:", err)
         
     
 

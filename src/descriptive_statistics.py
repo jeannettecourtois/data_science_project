@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
 from typing import Type
 import seaborn as sns
+from scipy.stats import norm, kurtosis
 
 
 def get_data_with_pandas()->pd.DataFrame:
@@ -17,7 +18,7 @@ class Variable:
     data_variable : pd.DataFrame = field(default_factory = get_data_with_pandas)
     
     def __str__(self):
-        return f"{self.get_mean()}\n {self.get_median()} \n {self.standard_deviation()} \n {self.variance()} \n {self.range()} \n {self.skewness()}"
+        return f"{self.get_mean()}\n {self.get_median()} \n {self.standard_deviation()} \n {self.variance()} \n {self.range()} \n {self.skewness()} \n {self.kurtosis()}"
     
     def get_mean(self) -> str:
         return f"Mean of {self.variable_name}: {self.data_variable[self.variable_name].mean()}"
@@ -40,6 +41,11 @@ class Variable:
     def skewness(self)->str:
         return f"Skewness of {self.variable_name}: {self.data_variable[self.variable_name].skew()}"
     
+    def kurtosis(self)->str:
+        return f"Kurtosis of {self.variable_name}: {self.data_variable[self.variable_name].kurt()}"
+    
+    
+    
 
     def all_figures(self):
         fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
@@ -47,9 +53,11 @@ class Variable:
         figure.histogram(ax=axes[0])
         figure.box_plot(ax=axes[1])
         figure.kde_density_plot(ax=axes[2])
+        # figure.pairplot(ax = axes[3])
         plt.tight_layout()
+        sns.pairplot(self.data_variable)
         plt.show()
-        fig.savefig(f"{self.data_variable} figure")
+        fig.savefig(self.data_variable + " figure")
         
         
         
@@ -76,3 +84,7 @@ class Figure:
         sns.kdeplot(self.data_info[self.data_name].dropna(), fill=True, ax=ax)
         ax.set_title(f"{self.data_name} Density Plot")
         return ax
+    def pairplot(self, ax):
+        sns.pairplot(self.data_info)
+        ax.set_title(f"{self.data_name} Correlation between variables")
+        return ax 
