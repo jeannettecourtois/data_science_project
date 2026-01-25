@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
 from typing import Type
 import seaborn as sns
-from scipy.stats import norm, kurtosis
+
 
 
 def get_data_with_pandas()->pd.DataFrame:
@@ -18,7 +18,7 @@ class Variable:
     data_variable : pd.DataFrame = field(default_factory = get_data_with_pandas)
     
     def __str__(self):
-        return f"{self.get_mean()}\n {self.get_median()} \n {self.standard_deviation()} \n {self.variance()} \n {self.range()} \n {self.skewness()} \n {self.kurtosis()}"
+        return f"{self.get_mean()}\n {self.get_median()} \n {self.standard_deviation()} \n {self.variance()} \n {self.range()} \n {self.get_quantiles()} \n {self.get_max_and_min()} \n {self.skewness()} \n {self.kurtosis()}"
     
     def get_mean(self) -> str:
         return f"Mean of {self.variable_name}: {self.data_variable[self.variable_name].mean()}"
@@ -38,11 +38,19 @@ class Variable:
     def range(self)->str:
         return f"Range of {self.variable_name}: {self.data_variable[self.variable_name].max() - self.data_variable[self.variable_name].min() }"
     
+    def get_max_and_min(self)->str:
+        return f"The maximum of {self.variable_name} is {self.data_variable[self.variable_name].max()} and the minimum is {self.data_variable[self.variable_name].min()}. "
+    
+    def get_quantiles(self)->str:
+        return f"Quantiles 1 and 3 of {self.variable_name}: {self.data_variable[self.variable_name].quantile(0.25)}, {self.data_variable[self.variable_name].quantile(0.75)}"
+    
     def skewness(self)->str:
         return f"Skewness of {self.variable_name}: {self.data_variable[self.variable_name].skew()}"
     
     def kurtosis(self)->str:
         return f"Kurtosis of {self.variable_name}: {self.data_variable[self.variable_name].kurt()}"
+    
+
     
     
     
