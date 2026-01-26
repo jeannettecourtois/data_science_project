@@ -38,6 +38,8 @@ class LinearRegression:
         plt.plot(self.data_variable["lvol"],      # Explanitory variable
         train_prediction,color="blue")
         plt.show()
-        
+
+
+
     
         
