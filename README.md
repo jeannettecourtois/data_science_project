@@ -61,7 +61,7 @@ All analyses are performed on the transformed data.
 │   └── prostate.txt
 ├── src/
 │   ├── descriptive_statistics.py
-│   ├── liniear_regression.py 
+│   ├── linear_regression.py 
 │   ├── PCA.py
 ├── main.py
 ├── requirements.txt
