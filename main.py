@@ -1,7 +1,7 @@
 import pandas as pd 
 from src.descriptive_statistics import Variable 
 from src.PCA import PCATD
-
+from src.PCA import SimplePca
 
 
 
@@ -32,15 +32,18 @@ def main():
         # print(PSA_Variable)
         # print(PSA_Variable.all_figures())
         
-        td = PCATD()
-        print(td.variances())           # Q1
-        td.fit()                        # Q2/Q3
-        td.print_pve()                  # Q3
-        td.scree_plot()                 # Q3
-        td.cumulative_plot()            # Q3
-        print(td.loadings.iloc[:, :2])  # Q2 (first two loading vectors)
-        td.correlation_circle(1, 2)     # Q4
-        td.scores_plot(1, 2)   
+        # td = PCATD(target_col=None, log_transform=True)  # log sauf age
+        # print(td.variances())
+        # td.fit()
+        # td.print_pve()
+        # td.scree_plot()
+        # td.cumulative_plot()
+        # td.scores_plot(1, 2)
+        # td.correlation_circle(1, 2)
+        
+        s = SimplePca()
+        s.simple()
+ 
           
         
         
