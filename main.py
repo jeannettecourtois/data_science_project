@@ -1,7 +1,8 @@
 import pandas as pd 
 from src.descriptive_statistics import Variable 
 from src.PCA import PCATD
-from src.PCA import SimplePca
+from src.linear_regression import LinearRegression
+
 
 
 
@@ -32,7 +33,7 @@ def main():
         # print(PSA_Variable)
         # print(PSA_Variable.all_figures())
         
-        # td = PCATD(target_col=None, log_transform=True)  # log sauf age
+        # td = PCATD(target_col='psa', log_transform=True)  # log sauf age
         # print(td.variances())
         # td.fit()
         # td.print_pve()
@@ -40,9 +41,14 @@ def main():
         # td.cumulative_plot()
         # td.scores_plot(1, 2)
         # td.correlation_circle(1, 2)
+        # print(td.loadings)
+        li = LinearRegression()
+        print(li.most_correlated_variable())
+        li.first_graphic()
         
-        s = SimplePca()
-        s.simple()
+        
+        
+        
  
           
         
